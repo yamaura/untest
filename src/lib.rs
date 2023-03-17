@@ -3,10 +3,6 @@
 
 use std::io::{self, Write};
 
-pub fn ddd_test_a() {
-    assert!(false, "This is fail");
-}
-
 extern crate test;
 pub fn test_runner(tests: &[&test::TestDescAndFn]) -> () {
     extern crate test;
