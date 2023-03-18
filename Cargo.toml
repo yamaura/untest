@@ -10,7 +10,7 @@ homepage = "https://github.com/yamaura/untest"
 repository = "https://github.com/yamaura/untest"
 readme = "README.md"
 keywords = []
-categories = ["command-line-interface", "command-line-utilities"]
+categories = []
 include = ["src/**/*.rs", "README.md", "LICENSE"]
 
 [package.metadata.release]
@@ -20,3 +20,7 @@ pre-release-commit-message = "Bump version to {{version}}"
 tag-message = "{{tag_name}}"
 
 [dependencies]
+untest_macro = { path = "untest_macro" }
+
+[workspace]
+members = ["untest_macro"]

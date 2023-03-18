@@ -1,7 +1,8 @@
 #![feature(test)]
 #![feature(internal_output_capture)]
 
-use std::io::{self, Write};
+use std::io::{self};
+pub use untest_macro::test;
 
 extern crate test;
 pub fn test_runner(tests: &[&test::TestDescAndFn]) -> () {
