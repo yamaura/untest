@@ -1,20 +1,16 @@
 #![feature(test)]
 #![feature(internal_output_capture)]
-
+extern crate test;
 use std::io::{self};
 pub use untest_macro::test;
 
-extern crate test;
-pub fn test_runner(tests: &[&test::TestDescAndFn]) -> () {
+pub fn test_runner(args: &[String], tests: Vec<test::TestDescAndFn>) -> () {
     extern crate test;
     use std::env;
 
     env::set_var("RUST_BACKTRACE", "0");
     // Force thread number to 1
     env::set_var("RUST_TEST_THREADS", "1");
-    for &t in tests {
-        println!("... {}", t.desc.name.as_slice());
-    }
 
     {
         use std::panic::{self, PanicInfo};
@@ -45,8 +41,7 @@ pub fn test_runner(tests: &[&test::TestDescAndFn]) -> () {
         });
         panic::set_hook(hook);
     }
-    //let owned_tests: Vec<_> = tests.iter().map(make_owned_test).collect();
-    test::test_main_static(tests); // original
+    test::test_main(args, tests, None); // original
 }
 
 // from librs
