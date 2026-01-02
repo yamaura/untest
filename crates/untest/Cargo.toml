@@ -13,7 +13,7 @@ libtest-mimic = ["dep:libtest-mimic"]
 default = []
 
 [dependencies]
-untest_macro = { path = "../untest_macro" }
+untest_macro = "0.2.0"
 thiserror = { workspace = true }
 inventory.workspace = true
 libtest-mimic = { version = "0.8.1", optional = true }
