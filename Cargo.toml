@@ -1,26 +1,26 @@
-[package]
-name = "untest"
-version = "0.1.2"
-edition = "2021"
+[workspace]
+resolver = "2"
+members = ["crates/*"]
 
+[workspace.package]
+version = "0.2.0"
 authors = ["Yuki Yamaura <ymruki@gmail.com>"]
+edition = "2024"
 license = "BSL-1.0"
 description = "Test harness"
 homepage = "https://github.com/yamaura/untest"
 repository = "https://github.com/yamaura/untest"
-readme = "README.md"
-keywords = []
-categories = []
-include = ["src/**/*.rs", "README.md", "LICENSE"]
+readme = "../../README.md"
 
-[package.metadata.release]
+[workspace.metadata.release]
 push = false
-tag-name = "{{prefix}}{{version}}"
+tag-name = "{{version}}"
 pre-release-commit-message = "Bump version to {{version}}"
 tag-message = "{{tag_name}}"
 
-[dependencies]
-untest_macro = { version = "0.1.1", path = "untest_macro" }
+[workspace.metadata.docs.rs]
+all-features = true
 
-[workspace]
-members = ["untest_macro"]
+[workspace.dependencies]
+thiserror = "2.0.12"
+inventory = "0.3.20"
